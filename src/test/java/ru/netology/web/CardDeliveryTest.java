@@ -14,26 +14,26 @@ public class CardDeliveryTest {
     void tryCorrectFilledForm() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Казань");
-        String Date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue("Чан Джеки");
         $("[data-test-id=phone] input").setValue("+78005553535");
         $(".checkbox__box").click();
         $$("button").find(exactText("Забронировать")).click();
-        $("[data-test-id=notification]").shouldHave(text("Встреча успешно забронирована на " + Date), Duration.ofSeconds(15));
+        $("[data-test-id=notification]").shouldHave(text("Встреча успешно забронирована на " + date), Duration.ofSeconds(15));
     }
 
     @Test
     void tryCorrectFilledFormWithHyphen() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Казань");
-        String Date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue("Чан-Иванов Джеки");
         $("[data-test-id=phone] input").setValue("+78005553535");
         $(".checkbox__box").click();
         $$("button").find(exactText("Забронировать")).click();
-        $("[data-test-id=notification]").shouldHave(text("Встреча успешно забронирована на " + Date), Duration.ofSeconds(15));
+        $("[data-test-id=notification]").shouldHave(text("Встреча успешно забронирована на " + date), Duration.ofSeconds(15));
     }
 
     @Test
@@ -47,8 +47,8 @@ public class CardDeliveryTest {
     void tryIncorrectCity() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Пекин");
-        String Date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue("Чан Джеки");
         $("[data-test-id=phone] input").setValue("+78005553535");
         $(".checkbox__box").click();
@@ -60,8 +60,8 @@ public class CardDeliveryTest {
     void tryIncorrectDate() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Казань");
-        String Date = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue("Чан Джеки");
         $("[data-test-id=phone] input").setValue("+78005553535");
         $(".checkbox__box").click();
@@ -86,8 +86,8 @@ public class CardDeliveryTest {
     void tryIncorrectName() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Казань");
-        String Date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue("Chan Jackie");
         $("[data-test-id=phone] input").setValue("+78005553535");
         $(".checkbox__box").click();
@@ -99,8 +99,8 @@ public class CardDeliveryTest {
     void tryWithoutName() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Казань");
-        String Date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=phone] input").setValue("+78005553535");
         $(".checkbox__box").click();
         $$("button").find(exactText("Забронировать")).click();
@@ -111,8 +111,8 @@ public class CardDeliveryTest {
     void tryIncorrectPhone() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Казань");
-        String Date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue("Чан Джеки");
         $("[data-test-id=phone] input").setValue("88005553535");
         $(".checkbox__box").click();
@@ -124,8 +124,8 @@ public class CardDeliveryTest {
     void tryWithoutPhone() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Казань");
-        String Date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue("Чан Джеки");
         $(".checkbox__box").click();
         $$("button").find(exactText("Забронировать")).click();
@@ -136,8 +136,8 @@ public class CardDeliveryTest {
     void tryWithoutCheckbox() {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Казань");
-        String Date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").doubleClick().sendKeys(Date);
+        String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").doubleClick().sendKeys(date);
         $("[data-test-id=name] input").setValue("Чан Джеки");
         $("[data-test-id=phone] input").setValue("+78005553535");
         $$("button").find(exactText("Забронировать")).click();
